@@ -35,7 +35,7 @@ for i in range(len(obj_object)):
             # these things are still strings (that's how they get stored in the file)
             # here we recast them to integer and floats
             fpts = [float(p) for p in line]
-            s
+            
             fpts[0] = fpts[0]*fps
             bpy.context.scene.frame_set(math.floor(fpts[0]), subframe=fpts[0]%1)
             obj_object[i].location = fpts[1:4]
