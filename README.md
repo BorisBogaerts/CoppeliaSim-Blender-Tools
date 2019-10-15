@@ -26,14 +26,17 @@ Youtube video with instructions: https://youtu.be/aevqp5xcfTQ
 I want to change the folder in which intermediate files are stored. Well this is easy, change line 6 of copyInBlender.py, and line 5 of the child script of BlenderExporter.ttm.
 
 I do not like that the animation starts recording when the simulation starts. Well you cou easily change this. Time steps are recorded through following code (in BlenderExporter.ttm's child script):
+```lua
 function sysCall_actuation()
     -- Do with this what you want
     recordPose()
 end
+```
 
 Just call recordPose() when you like it.
 
 I do not want to export ALL visible meshes. Well, it is actually easy to modify which meshes are exported. The meshes that are exported are selected by the following code:
+```lua
 getVisibleHandles = function()
 	handles = sim.getObjectsInTree(sim.handle_scene, sim.object_shape_type, 0)
 	local visibleHandles = {}
@@ -58,7 +61,7 @@ getVisibleHandles = function()
 	numberOfObjects = #handles
 	return visibleHandles
 end
-
+```
 You can change this code to generate a table visibleHandles, with the meshes you like to be exported.
 
 # Contact
